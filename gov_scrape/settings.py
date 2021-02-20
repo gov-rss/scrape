@@ -12,8 +12,16 @@ BOT_NAME = 'gov_scrape'
 SPIDER_MODULES = ['gov_scrape.spiders']
 NEWSPIDER_MODULE = 'gov_scrape.spiders'
 
+# Splash config
 SPLASH_URL = 'http://localhost:8050'
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
+
+# Scrapy RSS config
+FEED_FILE = './feeds/vic-gov.rss'
+FEED_TITLE = 'Media Centre | Premier of Victoria'
+FEED_LINK = 'https://www.premier.vic.gov.au/media-centre'
+FEED_DESCRIPTION = 'Posts from the Victorian State Government\'s media centre'
+FEED_EXPORTER = 'gov_scrape.exporters.VicGovRssItemExporter'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'gov_scrape (+http://www.yourdomain.com)'
@@ -66,9 +74,10 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'gov_scrape.pipelines.GovScrapePipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'gov_scrape.pipelines.GovScrapePipeline': 500,
+    'scrapy_rss.pipelines.RssExportPipeline': 950,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

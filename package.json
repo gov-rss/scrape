@@ -1,9 +1,0 @@
-{
-  "name": "gov-rss",
-  "version": "0.1.0",
-  "description": "A hub for state and local government announcements",
-  "main": "index.js",
-  "author": "Callum Skeet",
-  "license": "MIT",
-  "private": false
-}
