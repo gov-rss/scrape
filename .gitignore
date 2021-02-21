@@ -2,6 +2,7 @@
 *.html
 *.xml
 *.json
+feeds
 
 # Python
 # Byte-compiled / optimized / DLL files
