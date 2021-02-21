@@ -5,15 +5,14 @@
 
 
 # useful for handling different item types with a single interface
-import scrapy_rss
 import dateparser
+from scrapy_rss import RssedItem
 
 
 class GovScrapePipeline:
     def process_item(self, item, spider):
-        if isinstance(item, scrapy_rss.RssedItem):
+        if isinstance(item, RssedItem):
             item.rss.pubDate = dateparser.parse(
-                item['pubDate'],
-                settings={'RETURN_AS_TIMEZONE_AWARE': True}
+                item["pubDate"], settings={"RETURN_AS_TIMEZONE_AWARE": True}
             )
         return item
