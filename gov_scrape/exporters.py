@@ -17,3 +17,12 @@ class NswGovRssItemExporter(RssItemExporter):
             "copyright", "Copyright State Government of New South Wales"
         )
         super().__init__(*args, **kwargs)
+
+
+class QldGovRssItemExporter(RssItemExporter):
+    def __init__(self, *args, **kwargs):
+        kwargs["language"] = kwargs.get("language", "en-AU")
+        kwargs["copyright"] = kwargs.get(
+            "copyright", "Copyright State Government of Queensland"
+        )
+        super().__init__(*args, **kwargs)
