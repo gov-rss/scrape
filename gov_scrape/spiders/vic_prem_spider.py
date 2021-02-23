@@ -1,13 +1,13 @@
 import scrapy
 from scrapy_splash import SplashRequest
-from gov_scrape.items import RssFeedItem
+from ..items import RssFeedItem
 
 
-class VicGovScrapeSpider(scrapy.Spider):
-    name = "vic_gov_scrape"
+class VicPremSpider(scrapy.Spider):
+    name = "vic_prem_spider"
 
     custom_settings = {
-        "FEED_FILE": "./feeds/vic-gov.rss",
+        "FEED_FILE": "./feeds/vic-prem.rss",
         "FEED_TITLE": "Media Centre | Premier of Victoria",
         "FEED_LINK": "https://www.premier.vic.gov.au/media-centre",
         "FEED_DESCRIPTION": "Posts from the Victorian State Government's media centre",
@@ -16,8 +16,8 @@ class VicGovScrapeSpider(scrapy.Spider):
 
     def start_requests(self):
         url = "https://www.premier.vic.gov.au/media-centre?page=%d"
-        for i in range(1, 2):
-            yield SplashRequest(url % i, self.parse, args={"wait": 0.5})
+        for i in range(1, 3):
+            yield SplashRequest(url % i, self.parse, args={"wait": 2})
 
     def parse(self, response):
         post_links = response.css(
