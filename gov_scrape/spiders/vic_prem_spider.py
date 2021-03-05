@@ -1,6 +1,7 @@
+import base64
 import scrapy
 from scrapy_splash import SplashRequest
-from ..items import RssFeedItem
+from scrapy_rss import RssItem
 
 
 class VicPremSpider(scrapy.Spider):
@@ -15,9 +16,23 @@ class VicPremSpider(scrapy.Spider):
     }
 
     def start_requests(self):
+        # for some reason calling SplashRequest with a lua script works
+        # but a standard call using SplashRequest(url, self.parse, args={'wait': 10}) does not
+        script = """
+        function main(splash, args)
+            assert(splash:go(args.url))
+            assert(splash:wait(10))
+            return {
+                html = splash:html(),
+            }
+        end
+        """
+
         url = "https://www.premier.vic.gov.au/media-centre?page=%d"
         for i in range(1, 3):
-            yield SplashRequest(url % i, self.parse, args={"wait": 2})
+            yield SplashRequest(
+                url % i, self.parse, endpoint="execute", args={"lua_source": script}
+            )
 
     def parse(self, response):
         post_links = response.css(
@@ -31,16 +46,16 @@ class VicPremSpider(scrapy.Spider):
             r'field_news_date:"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+\d{2}:\d{2}"'
         )
 
-        item = RssFeedItem()
-        item.rss.title = response.css("title::text").get().split(" | ")[0]
-        item.rss.link = response.url
-        item.rss.guid = response.url
-        item["pubDate"] = (
+        item = RssItem()
+        item.title = response.css("title::text").get().split(" | ")[0]
+        item.link = response.url
+        item.guid = response.url
+        item.pubDate = (
             response.css("script::text")
             .re_first(date_pattern)
             .split(":", maxsplit=1)[-1]
             .strip('"')
         )
-        item.rss.description = "".join(response.css("div.rpl-markup__inner p").getall())
-        item.rss.author = "State Government of Victoria"
+        item.description = "".join(response.css("div.rpl-markup__inner p").getall())
+        item.author = "State Government of Victoria"
         yield item
