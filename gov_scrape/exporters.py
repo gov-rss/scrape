@@ -10,6 +10,13 @@ class VicGovRssItemExporter(RssItemExporter):
         super().__init__(*args, **kwargs)
 
 
+class VicShadowRssItemExporter(RssItemExporter):
+    def __init__(self, *args, **kwargs):
+        kwargs["language"] = kwargs.get("language", "en-AU")
+        kwargs["copyright"] = kwargs.get("copyright", "Copyright Liberal Victoria")
+        super().__init__(*args, **kwargs)
+
+
 class NswGovRssItemExporter(RssItemExporter):
     def __init__(self, *args, **kwargs):
         kwargs["language"] = kwargs.get("language", "en-AU")
