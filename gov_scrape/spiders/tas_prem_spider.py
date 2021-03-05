@@ -7,7 +7,7 @@ class TasPremSpider(scrapy.Spider):
 
     custom_settings = {
         "FEED_FILE": "./feeds/tas-prem.rss",
-        "FEED_TITLE": "Media Releases | Premier of TAS",
+        "FEED_TITLE": "Premier of Tasmania",
         "FEED_LINK": "http://www.premier.tas.gov.au/media_release_search?queries_portfolio_query=Premier",
         "FEED_DESCRIPTION": "Media statements from the Premier of South Australia",
         "FEED_EXPORTER": "gov_scrape.exporters.TasGovRssItemExporter",

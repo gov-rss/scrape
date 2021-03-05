@@ -7,7 +7,7 @@ class NswPremSpider(scrapy.Spider):
 
     custom_settings = {
         "FEED_FILE": "./feeds/nsw-prem.rss",
-        "FEED_TITLE": "Ministerial media releases | NSW Government",
+        "FEED_TITLE": "Ministers of New South Wales",
         "FEED_LINK": "https://www.nsw.gov.au/media-releases",
         "FEED_DESCRIPTION": "Posts from the New South Wales State Government's media centre",
         "FEED_EXPORTER": "gov_scrape.exporters.NswGovRssItemExporter",

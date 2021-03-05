@@ -7,7 +7,7 @@ class WaGovSpider(scrapy.Spider):
 
     custom_settings = {
         "FEED_FILE": "./feeds/wa-gov.rss",
-        "FEED_TITLE": "Media Statements | WA Government",
+        "FEED_TITLE": "Government of Western Australia",
         "FEED_LINK": "https://www.mediastatements.wa.gov.au",
         "FEED_DESCRIPTION": "Media statements from the Government of Western Australia",
         "FEED_EXPORTER": "gov_scrape.exporters.WaGovRssItemExporter",

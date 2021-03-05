@@ -7,7 +7,7 @@ class QldGovSpider(scrapy.Spider):
 
     custom_settings = {
         "FEED_FILE": "./feeds/qld-gov.rss",
-        "FEED_TITLE": "Media Statements | Queensland Government",
+        "FEED_TITLE": "Government of Queensland",
         "FEED_LINK": "https://statements.qld.gov.au/",
         "FEED_DESCRIPTION": "Media statements from the Queensland State Government",
         "FEED_EXPORTER": "gov_scrape.exporters.QldGovRssItemExporter",

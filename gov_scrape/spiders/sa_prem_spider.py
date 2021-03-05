@@ -7,7 +7,7 @@ class SaPremSpider(scrapy.Spider):
 
     custom_settings = {
         "FEED_FILE": "./feeds/sa-prem.rss",
-        "FEED_TITLE": "Media Releases | Premier of SA",
+        "FEED_TITLE": "Premier of South Australia",
         "FEED_LINK": "https://www.premier.sa.gov.au/news/media-releases",
         "FEED_DESCRIPTION": "Media statements from the Premier of South Australia",
         "FEED_EXPORTER": "gov_scrape.exporters.SaGovRssItemExporter",

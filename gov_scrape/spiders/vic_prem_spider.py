@@ -9,7 +9,7 @@ class VicPremSpider(scrapy.Spider):
 
     custom_settings = {
         "FEED_FILE": "./feeds/vic-prem.rss",
-        "FEED_TITLE": "Media Centre | Premier of Victoria",
+        "FEED_TITLE": "Premier of Victoria",
         "FEED_LINK": "https://www.premier.vic.gov.au/media-centre",
         "FEED_DESCRIPTION": "Posts from the Victorian State Government's media centre",
         "FEED_EXPORTER": "gov_scrape.exporters.VicGovRssItemExporter",
