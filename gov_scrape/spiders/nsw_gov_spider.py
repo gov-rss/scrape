@@ -1,5 +1,4 @@
 import scrapy
-from ..items import RssFeedItem
 from .nsw_prem_spider import NswPremSpider
 
 

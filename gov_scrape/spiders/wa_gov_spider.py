@@ -1,5 +1,5 @@
 import scrapy
-from ..items import RssFeedItem
+from scrapy_rss.items import RssItem
 
 
 class WaGovSpider(scrapy.Spider):
@@ -22,13 +22,11 @@ class WaGovSpider(scrapy.Spider):
         yield from response.follow_all(post_links, self.parse_item)
 
     def parse_item(self, response):
-        item = RssFeedItem()
-        item.rss.title = response.css("title::text").get().strip()
-        item.rss.link = response.url
-        item.rss.guid = response.url
-        item["pubDate"] = response.css("div.newsCreatedDate::text").get().strip()
-        item.rss.author = " & ".join(
-            response.css("img.ministersPic::attr(alt)").getall()
-        )
-        item.rss.description = response.css("div.ms-rtestate-field").get()
+        item = RssItem()
+        item.title = response.css("title::text").get().split(" - ", 1)[-1].strip()
+        item.link = response.url
+        item.guid = response.url
+        item.pubDate = response.css("div.newsCreatedDate::text").get().strip()
+        item.author = " & ".join(response.css("img.ministersPic::attr(alt)").getall())
+        item.description = response.css("div.ms-rtestate-field").get()
         yield item

@@ -1,5 +1,5 @@
 import scrapy
-from ..items import RssFeedItem
+from scrapy_rss import RssItem
 
 
 class TasPremSpider(scrapy.Spider):
@@ -22,13 +22,11 @@ class TasPremSpider(scrapy.Spider):
         yield from response.follow_all(post_links, self.parse_item)
 
     def parse_item(self, response):
-        item = RssFeedItem()
-        item.rss.title = response.css('meta[property="og:title"]::attr(content)').get()
-        item.rss.link = response.url
-        item.rss.guid = response.url
-        item["pubDate"] = response.css("h4::text").get().strip()
-        item.rss.author = response.css("div.header h1::text").get()
-        item.rss.description = "".join(
-            response.css('div[style="width:100%"] p').getall()
-        )
+        item = RssItem()
+        item.title = response.css('meta[property="og:title"]::attr(content)').get()
+        item.link = response.url
+        item.guid = response.url
+        item.pubDate = response.css("h4::text").get().strip()
+        item.author = response.css("div.header h1::text").get()
+        item.description = "".join(response.css('div[style="width:100%"] p').getall())
         yield item

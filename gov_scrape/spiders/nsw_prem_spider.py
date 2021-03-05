@@ -1,5 +1,5 @@
 import scrapy
-from ..items import RssFeedItem
+from scrapy_rss.items import RssItem
 
 
 class NswPremSpider(scrapy.Spider):
@@ -28,16 +28,16 @@ class NswPremSpider(scrapy.Spider):
             yield scrapy.Request(next_page, self.parse)
 
     def parse_item(self, response):
-        item = RssFeedItem()
-        item.rss.title = response.css("title::text").get().split(" | ")[0]
-        item.rss.link = response.url
-        item.rss.guid = response.url
-        item["pubDate"] = response.css('meta[name="dcterms.date"]::attr(content)').get()
-        item.rss.description = response.css("div.nsw-wysiwyg-content").get()
+        item = RssItem()
+        item.title = response.css("title::text").get().split(" | ")[0]
+        item.link = response.url
+        item.guid = response.url
+        item.pubDate = response.css('meta[name="dcterms.date"]::attr(content)').get()
+        item.description = response.css("div.nsw-wysiwyg-content").get()
         author = response.css("div.standard-header__released_by div::text").getall()
         if author:
-            item.rss.author = author[-1].strip()
+            item.author = author[-1].strip()
         else:
-            item.rss.author = "NSW Government"
+            item.author = "NSW Government"
 
         yield item

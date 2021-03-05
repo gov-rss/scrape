@@ -1,5 +1,5 @@
 import scrapy
-from ..items import RssFeedItem
+from scrapy_rss.items import RssItem
 
 
 class SaPremSpider(scrapy.Spider):
@@ -23,20 +23,13 @@ class SaPremSpider(scrapy.Spider):
         yield from response.follow_all(post_links, self.parse_item)
 
     def parse_item(self, response):
-        item = RssFeedItem()
-        item.rss.title = response.css('meta[name="dcterms.title"]::attr(content)').get()
-        item.rss.link = response.url
-        item.rss.guid = response.url
-
-        item["pubDate"] = response.css(
-            'meta[name="dcterms.issued"]::attr(content)'
-        ).get()
-
-        item.rss.author = response.css(
-            'meta[name="article.minister"]::attr(content)'
-        ).get()
-
+        item = RssItem()
+        item.title = response.css('meta[name="dcterms.title"]::attr(content)').get()
+        item.link = response.url
+        item.guid = response.url
+        item.pubDate = response.css('meta[name="dcterms.issued"]::attr(content)').get()
+        item.author = response.css('meta[name="article.minister"]::attr(content)').get()
         summary = response.css("div.news-detail__summary p").getall()
         body = response.css("div.news-detail__body p").getall()
-        item.rss.description = "".join(summary + body)
+        item.description = "".join(summary + body)
         return item

@@ -1,5 +1,5 @@
 import scrapy
-from ..items import RssFeedItem
+from scrapy_rss.items import RssItem
 
 
 class VicShadowSpider(scrapy.Spider):
@@ -22,11 +22,11 @@ class VicShadowSpider(scrapy.Spider):
         yield from response.follow_all(post_links, self.parse_item)
 
     def parse_item(self, response):
-        item = RssFeedItem()
-        item.rss.title = response.css('meta[property="og:title"]::attr(content)').get()
-        item.rss.link = response.url
-        item.rss.guid = response.url
-        item["pubDate"] = response.css(".title h6::text").get()
-        item.rss.author = "Liberal Victoria"
-        item.rss.description = "".join(response.css(".mr-content").extract())
+        item = RssItem()
+        item.title = response.css('meta[property="og:title"]::attr(content)').get()
+        item.link = response.url
+        item.guid = response.url
+        item.pubDate = response.css(".title h6::text").get()
+        item.author = "Liberal Victoria"
+        item.description = "".join(response.css(".mr-content").extract())
         yield item

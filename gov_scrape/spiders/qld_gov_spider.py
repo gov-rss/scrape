@@ -1,6 +1,5 @@
-from typing import AsyncIterable
 import scrapy
-from ..items import RssFeedItem
+from scrapy_rss.items import RssItem
 
 
 class QldGovSpider(scrapy.Spider):
@@ -24,23 +23,23 @@ class QldGovSpider(scrapy.Spider):
         yield from response.follow_all(post_links, self.parse_item)
 
     def parse_item(self, response):
-        item = RssFeedItem()
-        item.rss.title = (
+        item = RssItem()
+        item.title = (
             response.css('meta[name="DCTERMS.title"]::attr(content)').get().strip()
         )
-        item.rss.link = response.url
-        item.rss.guid = response.url
-        item["pubDate"] = (
+        item.link = response.url
+        item.guid = response.url
+        item.pubDate = (
             response.css("script::text")
             .re_first(r'"datePublished": ".*"')
             .split(":", 1)[-1]
             .strip(' "')
         )
         author = response.css("p.statement-ministers::text").getall()
-        item.rss.author = " & ".join(author)
+        item.author = " & ".join(author)
         description = response.css("div div p").getall()
         cutoff = 2  # publish date & author
         if len(author) > 1:
             cutoff += len(author)
-        item.rss.description = "".join(description[cutoff:])
+        item.description = "".join(description[cutoff:])
         yield item
