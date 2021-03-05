@@ -44,3 +44,12 @@ class SaGovRssItemExporter(RssItemExporter):
             "copyright", "Copyright State Government of South Australia"
         )
         super().__init__(*args, **kwargs)
+
+
+class TasGovRssItemExporter(RssItemExporter):
+    def __init__(self, *args, **kwargs):
+        kwargs["language"] = kwargs.get("language", "en-AU")
+        kwargs["copyright"] = kwargs.get(
+            "copyright", "Copyright State Government of Tasmania"
+        )
+        super().__init__(*args, **kwargs)
