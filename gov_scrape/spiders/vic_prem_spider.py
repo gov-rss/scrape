@@ -1,4 +1,3 @@
-import base64
 import scrapy
 from scrapy_splash import SplashRequest
 from scrapy_rss import RssItem
@@ -22,9 +21,7 @@ class VicPremSpider(scrapy.Spider):
         function main(splash, args)
             assert(splash:go(args.url))
             assert(splash:wait(10))
-            return {
-                html = splash:html(),
-            }
+            return splash:html()
         end
         """
 
