@@ -5,7 +5,7 @@ from scrapy_rss import RssItem
 
 
 class VicPremSpider(scrapy.Spider):
-    name = "vic_prem_spider"
+    name = "vic_prem"
 
     custom_settings = {
         "FEED_FILE": "./feeds/vic-prem.rss",

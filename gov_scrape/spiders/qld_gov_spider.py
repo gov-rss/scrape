@@ -3,7 +3,7 @@ from scrapy_rss.items import RssItem
 
 
 class QldGovSpider(scrapy.Spider):
-    name = "qld_gov_spider"
+    name = "qld_gov"
 
     custom_settings = {
         "FEED_FILE": "./feeds/qld-gov.rss",

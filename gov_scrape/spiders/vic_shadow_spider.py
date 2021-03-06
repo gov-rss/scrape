@@ -3,7 +3,7 @@ from scrapy_rss.items import RssItem
 
 
 class VicShadowSpider(scrapy.Spider):
-    name = "vic_shadow_spider"
+    name = "vic_shadow"
 
     custom_settings = {
         "FEED_FILE": "./feeds/vic-shadow.rss",

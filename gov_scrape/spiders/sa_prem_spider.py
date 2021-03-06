@@ -3,7 +3,7 @@ from scrapy_rss.items import RssItem
 
 
 class SaPremSpider(scrapy.Spider):
-    name = "sa_prem_spider"
+    name = "sa_prem"
 
     custom_settings = {
         "FEED_FILE": "./feeds/sa-prem.rss",

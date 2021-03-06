@@ -3,7 +3,7 @@ from scrapy_rss.items import RssItem
 
 
 class NswPremSpider(scrapy.Spider):
-    name = "nsw_prem_spider"
+    name = "nsw_prem"
 
     custom_settings = {
         "FEED_FILE": "./feeds/nsw-prem.rss",

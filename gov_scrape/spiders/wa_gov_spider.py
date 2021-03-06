@@ -3,7 +3,7 @@ from scrapy_rss.items import RssItem
 
 
 class WaGovSpider(scrapy.Spider):
-    name = "wa_gov_spider"
+    name = "wa_gov"
 
     custom_settings = {
         "FEED_FILE": "./feeds/wa-gov.rss",

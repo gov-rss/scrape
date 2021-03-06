@@ -3,7 +3,7 @@ from .nsw_prem_spider import NswPremSpider
 
 
 class NswGovSpider(NswPremSpider):
-    name = "nsw_gov_spider"
+    name = "nsw_gov"
 
     custom_settings = {
         "FEED_FILE": "./feeds/nsw-gov.rss",
