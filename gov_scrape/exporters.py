@@ -44,6 +44,13 @@ class QldShadowRssItemExporter(RssItemExporter):
         super().__init__(*args, **kwargs)
 
 
+class NtShadowRssItemExporter(RssItemExporter):
+    def __init__(self, *args, **kwargs):
+        kwargs["language"] = kwargs.get("language", "en-AU")
+        kwargs["copyright"] = kwargs.get("copyright", "Copyright Country Liberal Party")
+        super().__init__(*args, **kwargs)
+
+
 class WaGovRssItemExporter(RssItemExporter):
     def __init__(self, *args, **kwargs):
         kwargs["language"] = kwargs.get("language", "en-AU")
