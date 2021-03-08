@@ -34,4 +34,4 @@ class WaShadowSpider(scrapy.Spider):
             'meta[property="article:published_time"]::attr(content)'
         ).get()
         item.description = response.css(".entry-content").get()
-        return item
+        yield item
