@@ -60,6 +60,15 @@ class WaGovRssItemExporter(RssItemExporter):
         super().__init__(*args, **kwargs)
 
 
+class WaShadowRssItemExporter(RssItemExporter):
+    def __init__(self, *args, **kwargs):
+        kwargs["language"] = kwargs.get("language", "en-AU")
+        kwargs["copyright"] = kwargs.get(
+            "copyright", "Liberal Party of Western Australia"
+        )
+        super().__init__(*args, **kwargs)
+
+
 class SaGovRssItemExporter(RssItemExporter):
     def __init__(self, *args, **kwargs):
         kwargs["language"] = kwargs.get("language", "en-AU")
