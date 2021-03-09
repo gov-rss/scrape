@@ -1,7 +1,7 @@
 # gov-scrape
 
-A collection of Scrapy spiders that transform government media releases to
-RSS feeds. The purpose of creating these is to increase the availability of these media releases to members of the public, making it easier to keep up to date with the movements of state governments.
+A collection of Scrapy spiders that transform government media releases into
+RSS feeds. The purpose of creating this is to increase the availability of these media releases to members of the public, making it easier to keep up to date with the movements of state governments.
 
 ## Setup
 
