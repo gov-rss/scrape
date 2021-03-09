@@ -3,6 +3,8 @@
 *.xml
 *.json
 feeds
+dbs
+logs
 
 # Python
 # Byte-compiled / optimized / DLL files
