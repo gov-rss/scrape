@@ -6,6 +6,7 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import os
 
 BOT_NAME = "gov_scrape"
 
@@ -13,7 +14,7 @@ SPIDER_MODULES = ["gov_scrape.spiders"]
 NEWSPIDER_MODULE = "gov_scrape.spiders"
 
 # Splash config
-SPLASH_URL = "http://localhost:8050"
+SPLASH_URL = f"http://{os.getenv('SPLASH_IP', 'localhost:8050')}"
 DUPEFILTER_CLASS = "scrapy_splash.SplashAwareDupeFilter"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
