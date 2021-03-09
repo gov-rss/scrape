@@ -17,6 +17,7 @@ services:
     image: scrapinghub/splash:latest
     networks:
       - gov-scrape
+    mem_limit: 512m
 
 networks:
   gov-scrape:
