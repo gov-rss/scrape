@@ -43,7 +43,7 @@ scrapy crawl <spider-name>
 | [wa_gov](./gov_scrape/spiders/wa_gov_spider.py)         | https://www.mediastatements.wa.gov.au/Pages/Default.aspx                           |
 | [wa_shadow](./gov_scrape/spiders/wa_shadow_spider.py)   | https://www.waliberal.org.au/news/                                                 |
 
-\* In the process of getting permission from Facebook to scrape the SA Labor page
+_\* In the process of getting permission from Facebook to scrape the SA Labor page_
 
 A few sources already had RSS feeds available, a list of these is available below:
 
@@ -63,4 +63,4 @@ A few sources already had RSS feeds available, a list of these is available belo
 
 ---
 
-Copyright (c) 2021 Callum Skeet under [MIT License](./LICENSE)
+Copyright (c) 2021 [Callum Skeet](https://github.com/callumskeet) under the [MIT License](./LICENSE)
