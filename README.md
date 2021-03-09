@@ -18,10 +18,17 @@ conda create --file=environment.yaml
 conda activate gov-scrape
 ```
 
+### Docker
+
+```shell
+docker-compose up -d    # starts scraper and splash services
+```
+
 ## Run
 
 ```shell
-scrapy crawl <spider-name>
+scrapy crawl <spider-name>  # one spider
+./run.sh                    # all spiders
 ```
 
 ### Available spiders
