@@ -1,14 +1,18 @@
-FROM python:3.8-slim
+FROM scrapinghub/splash:master
 
-WORKDIR /usr/src/app
+USER root
+
+WORKDIR /gov-scrape
 
 COPY requirements.txt ./
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
+ENV PATH="/home/splash/.local/bin:${PATH}"
+
 RUN mkdir feeds
 RUN mkdir logs
 
 COPY . .
-
 RUN chmod +x ./run.sh
 
-CMD ["bash"]
+ENTRYPOINT [ "/gov-scrape/run.sh" ]
