@@ -11,6 +11,5 @@ su splash -c "python3 /app/bin/splash \
 for SPIDER in $(scrapy list); do
     echo -n "Running $SPIDER spider..."
     scrapy crawl --logfile=logs/${SPIDER}.log --loglevel=ERROR $SPIDER
-    echo "finished"
-    break
+    echo "done"
 done
