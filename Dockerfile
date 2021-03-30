@@ -15,4 +15,5 @@ RUN mkdir logs
 COPY . .
 RUN chmod +x ./run.sh
 
-ENTRYPOINT [ "/gov-scrape/run.sh" ]
+ENTRYPOINT [ "bash", "-c" ]
+CMD [ "/gov-scrape/run.sh" ]
