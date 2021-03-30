@@ -1,7 +1,15 @@
-# gov-scrape
+<h1 align="center"><b>gov-scrape</b></h1>
+<h3 align="center"><b>RSS feeds from government media releases</b></h3>
+<p align="center">
+    <i>gov + RSS</i>
+</p>
+
+---
+
+<br>
 
 A collection of Scrapy spiders that transform government media releases into
-RSS feeds. The purpose of creating this is to increase the availability of these media releases to members of the public, making it easier to keep up to date with the movements of state governments.
+RSS feeds. The purpose of creating this is to increase the availability of these media releases to members of the public, making it easier to keep up to date with state governments.
 
 ## Setup
 
@@ -21,7 +29,13 @@ conda activate gov-scrape
 ### Docker
 
 ```shell
-docker-compose up -d    # starts scraper and splash services
+docker build --rm -t gov-scrape .
+docker run \
+    --name gov-scrape \
+    --rm \
+    -v $FEED_DIR:/gov-scrape/feeds \
+    -v $LOG_DIR:/gov-scrape/logs \
+    -it gov-scrape
 ```
 
 ## Run
@@ -35,11 +49,11 @@ scrapy crawl <spider-name>  # one spider
 
 | Spider Name                                             | Source                                                                             |
 | ------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| [act_shadow](./gov_scrape/spiders/act_shadow_spider.py) | https://canberraliberals.org.au/news                                               |
-| [nsw_gov](./gov_scrape/spiders/nsw_gov_spider.py)       | https://www.nsw.gov.au/news                                                        |
-| [nsw_prem](./gov_scrape/spiders/nsw_prem_spider.py)     | https://www.nsw.gov.au/media-releases                                              |
-| [nt_shadow](./gov_scrape/spiders/nt_shadow_spider.py)   | http://www.countryliberal.org/                                                     |
-| [sa_prem](./gov_scrape/spiders/sa_prem_spider.py)       | https://www.premier.sa.gov.au/news/media-releases                                  |
+| [act_shadow](./gov_scrape/spiders/act_shadow_spider.py) | [canberraliberals.org.au](https://canberraliberals.org.au/news)                    |
+| [nsw_gov](./gov_scrape/spiders/nsw_gov_spider.py)       | [nsw.gov.au](https://www.nsw.gov.au/news)                                          |
+| [nsw_prem](./gov_scrape/spiders/nsw_prem_spider.py)     | [nsw.gov.au](https://www.nsw.gov.au/media-releases)                                |
+| [nt_shadow](./gov_scrape/spiders/nt_shadow_spider.py)   | [countryliberal.org](http://www.countryliberal.org/)                               |
+| [sa_prem](./gov_scrape/spiders/sa_prem_spider.py)       | [premier.sa.gov.au](https://www.premier.sa.gov.au/news/media-releases)             |
 | [tas_prem](./gov_scrape/spiders/tas_prem_spider.py)     | http://www.premier.tas.gov.au/media_release_search?queries_portfolio_query=Premier |
 | [qld_gov](./gov_scrape/spiders/qld_gov_spider.py)       | https://statements.qld.gov.au/                                                     |
 | [qld_shadow](./gov_scrape/spiders/qld_shadow_spider.py) | https://www.lnp.org.au/news/                                                       |
