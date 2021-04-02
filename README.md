@@ -16,34 +16,49 @@ RSS feeds. The purpose of creating this is to increase the availability of these
 ### Pip
 
 ```shell
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 ### Conda
 
 ```shell
-conda create --file=environment.yaml
-conda activate gov-scrape
+$ conda create --file=environment.yaml
+$ conda activate gov-scrape
 ```
 
 ### Docker
 
 ```shell
-docker build --rm -t gov-scrape .
-docker run \
-    --name gov-scrape \
-    --rm \
-    -v $FEED_DIR:/gov-scrape/feeds \
-    -v $LOG_DIR:/gov-scrape/logs \
-    -it gov-scrape
+$ docker build --rm -t gov-scrape .
 ```
 
 ## Run
 
+### Shell
+
 ```shell
-scrapy crawl <spider-name>  # one spider
-./run.sh                    # all spiders
+$ scrapy crawl <spider-name>  # one spider
+$ ./crawl.sh                  # all spiders
 ```
+
+### Docker-Compose
+
+```shell
+$ docker-compose run gov-scrape
+```
+
+### Docker
+
+```shell
+$ docker run \
+    --name gov-scrape \
+    --rm \
+    -v $FEED_DIR:/gov-scrape/feeds \    # stores rss files
+    -v $LOG_DIR:/gov-scrape/logs \      # log files from scrapy
+    -it gov-scrape                      # crawls with all spiders
+```
+
+The regular shell commands also work with Docker, e.g. `scrapy crawl vic-prem` can be passed to the container.
 
 ### Available spiders
 
@@ -85,3 +100,7 @@ A few sources already had RSS feeds available, a list of these is available belo
 ---
 
 Copyright (c) 2021 [Callum Skeet](https://github.com/callumskeet) under the [MIT License](./LICENSE)
+
+```
+
+```
