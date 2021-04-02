@@ -39,13 +39,13 @@ class QldShadowSpider(scrapy.Spider):
     def parse(self, response):
         post_elements = response.css(".cff-item.author-lnp---liberal-national-party")
         for post in post_elements:
-            isVideoPost = True if post.css(".cff-video-post") else False
+            is_video_post = True if post.css(".cff-video-post") else False
             item = RssItem()
             item.author = post.css("div.cff-page-name a::text").get()
             item.pubDate = post.css(".cff-date::text").get().strip()
             item.link = post.css(".cff-viewpost-facebook::attr(href)").get()
             item.guid = item.link.link
-            if isVideoPost:
+            if is_video_post:
                 item.title = post.css(".cff-poster::attr(alt)").get()
                 item.description = post
             else:
