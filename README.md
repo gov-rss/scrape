@@ -11,6 +11,8 @@
 A collection of Scrapy spiders that transform government media releases into
 RSS feeds. The purpose of creating this is to increase the availability of these media releases to members of the public, making it easier to keep up to date with state governments.
 
+The feeds are updated regularly at this repo [callumskeet/rss-feeds](https://github.com/callumskeet/rss-feeds)
+
 ## Setup
 
 ### Pip
@@ -62,22 +64,22 @@ The regular shell commands also work with Docker, e.g. `scrapy crawl vic-prem` c
 
 ### Available spiders
 
-| Spider Name                                             | Source                                                                             |
-| ------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| [act_shadow](./gov_scrape/spiders/act_shadow_spider.py) | [canberraliberals.org.au](https://canberraliberals.org.au/news)                    |
-| [nsw_gov](./gov_scrape/spiders/nsw_gov_spider.py)       | [nsw.gov.au](https://www.nsw.gov.au/news)                                          |
-| [nsw_prem](./gov_scrape/spiders/nsw_prem_spider.py)     | [nsw.gov.au](https://www.nsw.gov.au/media-releases)                                |
-| [nt_shadow](./gov_scrape/spiders/nt_shadow_spider.py)   | [countryliberal.org](http://www.countryliberal.org/)                               |
-| [sa_prem](./gov_scrape/spiders/sa_prem_spider.py)       | [premier.sa.gov.au](https://www.premier.sa.gov.au/news/media-releases)             |
-| [tas_prem](./gov_scrape/spiders/tas_prem_spider.py)     | http://www.premier.tas.gov.au/media_release_search?queries_portfolio_query=Premier |
-| [qld_gov](./gov_scrape/spiders/qld_gov_spider.py)       | https://statements.qld.gov.au/                                                     |
-| [qld_shadow](./gov_scrape/spiders/qld_shadow_spider.py) | https://www.lnp.org.au/news/                                                       |
-| [sa_shadow](./gov_scrape/spiders/sa_shadow_spider.py)\* | https://www.facebook.com/SouthAustralianLabor/                                     |
-| [tas_shadow](./gov_scrape/spiders/tas_shadow_spider.py) | https://taslabor.com/news/                                                         |
-| [vic_prem](./gov_scrape/spiders/vic_prem_spider.py)     | https://www.premier.vic.gov.au/media-centre                                        |
-| [vic_shadow](./gov_scrape/spiders/vic_shadow_spider.py) | https://vic.liberal.org.au/MediaReleases/                                          |
-| [wa_gov](./gov_scrape/spiders/wa_gov_spider.py)         | https://www.mediastatements.wa.gov.au/Pages/Default.aspx                           |
-| [wa_shadow](./gov_scrape/spiders/wa_shadow_spider.py)   | https://www.waliberal.org.au/news/                                                 |
+| Spider Name                                             | Source                                                                                                   |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [act_shadow](./gov_scrape/spiders/act_shadow_spider.py) | [canberraliberals.org.au](https://canberraliberals.org.au/news)                                          |
+| [nsw_gov](./gov_scrape/spiders/nsw_gov_spider.py)       | [nsw.gov.au](https://www.nsw.gov.au/news)                                                                |
+| [nsw_prem](./gov_scrape/spiders/nsw_prem_spider.py)     | [nsw.gov.au](https://www.nsw.gov.au/media-releases)                                                      |
+| [nt_shadow](./gov_scrape/spiders/nt_shadow_spider.py)   | [countryliberal.org](http://www.countryliberal.org/)                                                     |
+| [sa_prem](./gov_scrape/spiders/sa_prem_spider.py)       | [premier.sa.gov.au](https://www.premier.sa.gov.au/news/media-releases)                                   |
+| [tas_prem](./gov_scrape/spiders/tas_prem_spider.py)     | [premier.tas.gov.au](http://www.premier.tas.gov.au/media_release_search?queries_portfolio_query=Premier) |
+| [qld_gov](./gov_scrape/spiders/qld_gov_spider.py)       | [statements.qld.gov.au](https://statements.qld.gov.au/)                                                  |
+| [qld_shadow](./gov_scrape/spiders/qld_shadow_spider.py) | [lnp.org.au](https://www.lnp.org.au/news/)                                                               |
+| [sa_shadow](./gov_scrape/spiders/sa_shadow_spider.py)\* | [facebook.com/SouthAustralianLabor/](https://www.facebook.com/SouthAustralianLabor/)                     |
+| [tas_shadow](./gov_scrape/spiders/tas_shadow_spider.py) | [taslabor.com](https://taslabor.com/news/)                                                               |
+| [vic_prem](./gov_scrape/spiders/vic_prem_spider.py)     | [premier.vic.gov.au](https://www.premier.vic.gov.au/media-centre)                                        |
+| [vic_shadow](./gov_scrape/spiders/vic_shadow_spider.py) | [vic.liberal.org.au](https://vic.liberal.org.au/MediaReleases/)                                          |
+| [wa_gov](./gov_scrape/spiders/wa_gov_spider.py)         | [mediastatements.wa.gov.au](https://www.mediastatements.wa.gov.au/Pages/Default.aspx)                    |
+| [wa_shadow](./gov_scrape/spiders/wa_shadow_spider.py)   | [waliberal.org.au](https://www.waliberal.org.au/news/)                                                   |
 
 _\* In the process of getting permission from Facebook to scrape the SA Labor page_
 
