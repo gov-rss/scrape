@@ -8,8 +8,4 @@ su splash -c "python3 /app/bin/splash \
     --lua-package-path /etc/splash/lua_modules/?.lua" &> ./logs/splash.log &
 
 
-for SPIDER in $(scrapy list); do
-    echo -n "Running $SPIDER spider..."
-    scrapy crawl --logfile=logs/${SPIDER}.log --loglevel=ERROR $SPIDER
-    echo "done"
-done
+./crawl.sh

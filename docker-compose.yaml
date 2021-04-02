@@ -1,9 +1,8 @@
 version: "3.8"
 
 services:
-  scraper:
-    build: ./
-    image: gov-scrape:latest
+  gov-scrape:
+    image: callumskeet/gov-scrape:latest
     volumes:
       - ./feeds:/usr/src/app/feeds
       - ./logs:/usr/src/app/logs
@@ -17,7 +16,6 @@ services:
     image: scrapinghub/splash:latest
     networks:
       - gov-scrape
-    mem_limit: 512m
 
 networks:
   gov-scrape:
