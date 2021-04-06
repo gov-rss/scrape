@@ -6,7 +6,7 @@ class VicShadowSpider(scrapy.Spider):
     name = "vic_shadow"
 
     custom_settings = {
-        "FEED_FILE": "./feeds/vic-shadow.rss",
+        "FEED_FILE": "./feeds/vic-liberals.rss",
         "FEED_TITLE": "Liberal Victoria",
         "FEED_LINK": "https://vic.liberal.org.au/MediaReleases/",
         "FEED_DESCRIPTION": "Media releases from Liberal Victoria",

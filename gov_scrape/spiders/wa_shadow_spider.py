@@ -6,7 +6,7 @@ class WaShadowSpider(scrapy.Spider):
     name = "wa_shadow"
 
     custom_settings = {
-        "FEED_FILE": "./feeds/wa-shadow.rss",
+        "FEED_FILE": "./feeds/wa-liberals.rss",
         "FEED_TITLE": "Liberal Party of Western Australia",
         "FEED_LINK": "https://www.waliberal.org.au/news/",
         "FEED_DESCRIPTION": "Media releases from the Liberal Party of Western Australia",

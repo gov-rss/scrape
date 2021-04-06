@@ -7,7 +7,7 @@ class QldShadowSpider(scrapy.Spider):
     name = "qld_shadow"
 
     custom_settings = {
-        "FEED_FILE": "./feeds/qld-shadow.rss",
+        "FEED_FILE": "./feeds/qld-liberal-nationals.rss",
         "FEED_TITLE": "Liberal National Party Queensland",
         "FEED_LINK": "https://www.lnp.org.au/news/",
         "FEED_DESCRIPTION": "Facebook feed of the Queensland Liberal National Party",

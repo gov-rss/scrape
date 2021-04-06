@@ -7,7 +7,7 @@ class SaShadowSpider(scrapy.Spider):
     name = "sa_shadow"
 
     custom_settings = {
-        "FEED_FILE": "./feeds/sa-shadow.rss",
+        "FEED_FILE": "./feeds/sa-labor.rss",
         "FEED_TITLE": "South Australian Labor",
         "FEED_LINK": "https://www.facebook.com/SouthAustralianLabor/",
         "FEED_DESCRIPTION": "Posts from South Australian Labor's Facebook feed",

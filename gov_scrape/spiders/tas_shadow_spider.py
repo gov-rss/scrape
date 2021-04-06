@@ -7,7 +7,7 @@ class TasShadowSpider(scrapy.Spider):
     name = "tas_shadow"
 
     custom_settings = {
-        "FEED_FILE": "./feeds/tas-shadow.rss",
+        "FEED_FILE": "./feeds/tas-labor.rss",
         "FEED_TITLE": "Tasmanian Labor",
         "FEED_LINK": "https://taslabor.com/news/",
         "FEED_DESCRIPTION": "News and media releases from Tasmanian Labor",

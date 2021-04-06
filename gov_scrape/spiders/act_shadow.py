@@ -6,7 +6,7 @@ class ActShadowSpider(scrapy.Spider):
     name = "act_shadow"
 
     custom_settings = {
-        "FEED_FILE": "./feeds/act-shadow.rss",
+        "FEED_FILE": "./feeds/act-liberals.rss",
         "FEED_TITLE": "Canberra Liberals",
         "FEED_LINK": "https://canberraliberals.org.au/news",
         "FEED_DESCRIPTION": "The lastest News, Media Releases and Speeches from the Canberra Liberals",

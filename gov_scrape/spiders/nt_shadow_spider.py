@@ -7,7 +7,7 @@ class NtShadowSpider(scrapy.Spider):
     name = "nt_shadow"
 
     custom_settings = {
-        "FEED_FILE": "./feeds/nt-shadow.rss",
+        "FEED_FILE": "./feeds/nt-liberals.rss",
         "FEED_TITLE": "Country Liberal Party of the Northern Territory",
         "FEED_LINK": "http://www.countryliberal.org/",
         "FEED_DESCRIPTION": "Media releases from the Country Liberal Party of the Northern Territory",
