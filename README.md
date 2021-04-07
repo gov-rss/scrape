@@ -1,12 +1,6 @@
-<h1 align="center"><b>gov-scrape</b></h1>
-<h3 align="center"><b>RSS feeds from government media releases</b></h3>
-<p align="center">
-    <i>gov + RSS</i>
-</p>
+# gov-scrape
 
----
-
-<br>
+[![CI to Docker Hub](https://github.com/gov-rss/scrape/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/gov-rss/scrape/actions/workflows/main.yml)
 
 A collection of Scrapy spiders that transform government media releases into
 RSS feeds. The purpose of creating this is to increase the availability of these media releases to members of the public, making it easier to keep up to date with state governments.
