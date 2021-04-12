@@ -1,17 +1,11 @@
-<h1 align="center"><b>gov-scrape</b></h1>
-<h3 align="center"><b>RSS feeds from government media releases</b></h3>
-<p align="center">
-    <i>gov + RSS</i>
-</p>
+# gov-scrape
 
----
-
-<br>
+[![CI to Docker Hub](https://github.com/gov-rss/scrape/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/gov-rss/scrape/actions/workflows/main.yml)
 
 A collection of Scrapy spiders that transform government media releases into
 RSS feeds. The purpose of creating this is to increase the availability of these media releases to members of the public, making it easier to keep up to date with state governments.
 
-The feeds are updated regularly at this repo [callumskeet/rss-feeds](https://github.com/callumskeet/rss-feeds)
+The feeds are available through the [website](https://gov-rss.github.io) and [gov-rss/rss](https://github.com/gov-rss/rss).
 
 ## Setup
 
@@ -31,6 +25,8 @@ $ conda activate gov-scrape
 ### Docker
 
 ```shell
+$ docker pull callumskeet/gov-scrape
+# or
 $ docker build --rm -t gov-scrape .
 ```
 
@@ -102,7 +98,3 @@ A few sources already had RSS feeds available, a list of these is available belo
 ---
 
 Copyright (c) 2021 [Callum Skeet](https://github.com/callumskeet) under the [MIT License](./LICENSE)
-
-```
-
-```
