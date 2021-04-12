@@ -2,18 +2,19 @@ version: "3.8"
 
 services:
   gov-scrape:
-    image: callumskeet/gov-scrape:latest
+    image: callumskeet/gov-scrape:slim
     volumes:
-      - ./feeds:/usr/src/app/feeds
-      - ./logs:/usr/src/app/logs
+      - ./feeds:/gov-scrape/feeds
+      - ./logs:/gov-scrape/logs
+      - ./httpcache:/gov-scrape/.scrapy/httpcache
     stdin_open: true
     networks:
       - gov-scrape
-    restart: always
+    restart: "no"
     environment:
       SPLASH_IP: splash:8050
   splash:
-    image: scrapinghub/splash:latest
+    image: scrapinghub/splash:master
     networks:
       - gov-scrape
 
