@@ -3,8 +3,8 @@ import scrapy
 from scrapy_rss import RssItem
 
 
-class NtShadowSpider(scrapy.Spider):
-    name = "nt_shadow"
+class NtLiberalSpider(scrapy.Spider):
+    name = "nt_liberals"
 
     custom_settings = {
         "FEED_FILE": "./feeds/nt-liberals.rss",

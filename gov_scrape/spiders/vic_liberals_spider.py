@@ -2,8 +2,8 @@ import scrapy
 from scrapy_rss.items import RssItem
 
 
-class VicShadowSpider(scrapy.Spider):
-    name = "vic_shadow"
+class VicLiberalsSpider(scrapy.Spider):
+    name = "vic_liberals"
 
     custom_settings = {
         "FEED_FILE": "./feeds/vic-liberals.rss",

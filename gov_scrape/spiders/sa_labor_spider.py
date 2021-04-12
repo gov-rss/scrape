@@ -3,8 +3,8 @@ from scrapy_splash import SplashRequest
 from scrapy_rss import RssItem
 
 
-class SaShadowSpider(scrapy.Spider):
-    name = "sa_shadow"
+class SaLaborSpider(scrapy.Spider):
+    name = "sa_labor"
 
     custom_settings = {
         "FEED_FILE": "./feeds/sa-labor.rss",

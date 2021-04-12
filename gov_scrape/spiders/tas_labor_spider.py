@@ -3,8 +3,8 @@ import scrapy
 from scrapy_rss import RssItem
 
 
-class TasShadowSpider(scrapy.Spider):
-    name = "tas_shadow"
+class TasLaborSpider(scrapy.Spider):
+    name = "tas_labor"
 
     custom_settings = {
         "FEED_FILE": "./feeds/tas-labor.rss",

@@ -3,8 +3,8 @@ from scrapy_splash import SplashRequest
 from scrapy_rss import RssItem
 
 
-class QldShadowSpider(scrapy.Spider):
-    name = "qld_shadow"
+class QldLNPSpider(scrapy.Spider):
+    name = "qld_lnp"
 
     custom_settings = {
         "FEED_FILE": "./feeds/qld-liberal-nationals.rss",
