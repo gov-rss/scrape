@@ -5,6 +5,7 @@
 feeds
 dbs
 logs
+httpcache
 
 # Python
 # Byte-compiled / optimized / DLL files

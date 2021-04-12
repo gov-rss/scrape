@@ -3,6 +3,8 @@ feeds
 dbs
 logs
 .git
+httpcache
+.scrapy
 
 *.html
 *.xml
