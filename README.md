@@ -27,7 +27,7 @@ $ conda activate gov-scrape
 ```shell
 $ docker pull callumskeet/gov-scrape
 # or
-$ docker build --rm -t gov-scrape .
+$ docker build -f splash.Dockerfile -t gov-scrape .
 ```
 
 ## Run
@@ -42,7 +42,7 @@ $ ./crawl.sh                  # all spiders
 ### Docker-Compose
 
 ```shell
-$ docker-compose run gov-scrape
+$ docker-compose up -d        # runs crawl.sh then exits
 ```
 
 ### Docker
@@ -51,9 +51,10 @@ $ docker-compose run gov-scrape
 $ docker run \
     --name gov-scrape \
     --rm \
-    -v $FEED_DIR:/gov-scrape/feeds \    # stores rss files
-    -v $LOG_DIR:/gov-scrape/logs \      # log files from scrapy
-    -it gov-scrape                      # crawls with all spiders
+    -v $FEED_DIR:/gov-scrape/feeds \                # stores rss files
+    -v $LOG_DIR:/gov-scrape/logs \                  # log files from scrapy
+    -v $CACHE_DIR:/gov-scrape/.scrapy/httpcache     # cache content from crawled pages
+    -it gov-scrape                                  # crawls with all spiders
 ```
 
 The regular shell commands also work with Docker, e.g. `scrapy crawl vic-prem` can be passed to the container.
